@@ -1,0 +1,54 @@
+        .header-body {
+            margin-bottom: 2rem !important;
+        }
+        
+        .table td,
+        .table th {
+            white-space: normal !important;
+        }
+        
+        .challenges .visible-print svg {
+            width: 100% !important;
+            height: 150px !important;
+        }
+        
+        .vueditor {
+            min-width: 300px;
+            min-height: 500px;
+        }
+        
+        .avatar img {
+            width: 100%;
+            border-radius: 50%;
+            HEIGHT: 100%;
+        }
+        
+        .image-personal {
+            width: 50%;
+            border-radius: 50%;
+        }
+        
+        .info-details {
+            font-size: 13px;
+            text-align: justify;
+            color: red;
+            font-weight: 400;
+            border-bottom: 2px solid #ece7e7;
+        }
+        
+        .info-details label {
+            font-weight: bold;
+            color: black;
+        }
+        
+        .info-details strong {
+            cursor: pointer;
+        }
+        
+        .collapse.show .router-link-exact-active {
+            background-color: #c7f8c9;
+        }
+        
+        #table_id img {
+            width: 30%;
+        }

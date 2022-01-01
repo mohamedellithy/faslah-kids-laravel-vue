@@ -1,0 +1,47 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "axios": "^0.19.2",
+        "bootstrap": "^4.6.0",
+        "cross-env": "^7.0",
+        "jquery": "^3.6.0",
+        "laravel-mix": "^5.0.1",
+        "lodash": "^4.17.13",
+        "popper.js": "^1.12",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.20.1",
+        "sass-loader": "^8.0.0",
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "@websanova/vue-auth": "^4.1.4",
+        "bootstrap-vue": "^2.21.2",
+        "chart.js": "^3.5.1",
+        "datatables.net-dt": "^1.11.3",
+        "element-ui": "^2.15.6",
+        "es6-promise": "^4.2.8",
+        "nouislider": "^15.4.0",
+        "perfect-scrollbar": "^1.5.2",
+        "router-view": "^1.1.7",
+        "vee-validate": "^3.4.13",
+        "vue-axios": "^3.3.7",
+        "vue-chartjs": "^3.5.1",
+        "vue-html-editor": "^0.2.1",
+        "vue-html-to-paper": "^1.4.3",
+        "vue-progressbar": "^0.7.5",
+        "vue-router": "^3.5.2",
+        "vue2-transitions": "^0.3.0",
+        "vueditor": "^0.3.1",
+        "vuejs-quill": "^1.4.0"
+    }
+}

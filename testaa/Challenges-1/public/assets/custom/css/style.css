@@ -1,0 +1,24 @@
+        .header-body {
+            margin-bottom: 2rem !important;
+        }
+        
+        .table td,
+        .table th {
+            white-space: normal !important;
+        }
+        
+        .challenges .visible-print svg {
+            width: 100% !important;
+            height: 150px !important;
+        }
+        
+        .vueditor {
+            min-width: 300px;
+            min-height: 500px;
+        }
+        
+        .avatar img {
+            width: 100%;
+            border-radius: 50%;
+            HEIGHT: 100%;
+        }
