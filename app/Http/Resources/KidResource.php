@@ -24,7 +24,7 @@ class KidResource extends JsonResource
             'age'       => $this->age,
             'email'     => $this->email,
             'fullname'  => $this->firstname.' '.$this->lastname,
-            'challenges'=> ChallengeResource::collection($this->challenges),
+            'challenges'=> ChallengeResource::collection($this->challenges()->inRandomOrder()->get()),
             'count_challenges' => $this->challenges->count(),
             'role'      => $this->role
         ];

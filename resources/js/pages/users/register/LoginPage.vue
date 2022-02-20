@@ -103,9 +103,9 @@
                 setTimeout(() => {
                     this.$router.replace({name:'user-products'});
                 },2000);
-            }).catch((error) => {
+            }).catch(({response}) => {
                 self.result.status  = 'error';
-                self.result.message = error.response.data.error;
+                self.result.message = response.data.error;
                 console.log(self.result);
             }).then(() => {
 

@@ -25,12 +25,14 @@ const auth = {
         // . You can do api call here to login
         async LoginAuth(_, credentials) {
             let response = await axios.post('/api/auth/login', credentials);
+            console.log(response.data);
             return this.dispatch('auth/attempt', response.data.access_token);
         },
         async attempt(_, token) {
             this.commit('auth/SET_Token', token);
             try {
                 let response = await axios.get('/api/auth/me');
+                console.log(response);
                 this.commit('auth/SET_User', response.data.data);
             } catch (e) {
                 this.commit('auth/SET_Token', null);

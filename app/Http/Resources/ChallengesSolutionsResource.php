@@ -22,6 +22,7 @@ class ChallengesSolutionsResource extends JsonResource
             'product_id'       => $this->challenge->product->id,
             'product_title'    => $this->challenge->product->title,
             'challenge_id'     => $this->challenge->id,
+            'challenge'        => new ChallengeResource($this->challenge),
             'images'           => ($this->images ? GallaryResource::collection($this->images) : []),
             'description'      => $this->description,
             'kidname'          => $this->kid->firstname.' '.$this->kid->lastname,

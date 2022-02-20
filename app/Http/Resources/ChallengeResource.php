@@ -27,7 +27,7 @@ class ChallengeResource extends JsonResource
             'count_challenger' =>$this->kids()->count(),
             'images_kids' => ImageResource::collection($this->image_for_who_take_challenge),
             'created_at'=> date('Y-m-d H:i:s',strtotime($this->created_at)),
-            'solution_id' => $this->pivot->id ?? '',
+            'my_solution' => auth()->user() ? auth()->user()->solutions()->where('challenge_id',$this->id)->first() : null
         ];
     }
 }

@@ -34,21 +34,19 @@ class KidController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function challenges_activities($kid_id){
-        $Context['challenges_finished'] = Challenge::whereHas('kids', function($query) use ($kid_id){
-            return $query->where('challenge_solutions.kid_id',$kid_id);
-        })->pluck('id')->toArray();
+    public function challenges_activities(){
+        $kid_id = auth()->user()->id;
+        $challenge['challenges_finished'] = auth()->user()->solutions()->pluck('challenge_id')->toArray() ?? [];
+        $challenge['next_challenge'] = Challenge::whereDoesntHave('solutions',function(Builder $query) use ($kid_id){
+            return $query->where('solutions.kid_id',$kid_id);
+        })->first();
 
-        $Context['next_challenge'] = Challenge::whereDoesntHave('kids',function(Builder $query) use ($kid_id){
-            return $query->where('challenge_solutions.kid_id',$kid_id);
-        })->select('id')->orderBy('number')->first();
-
-        return response()->json($Context);
+        return response()->json($challenge);
     }
 
     public function get_my_challenges($kid_id){
-        $Context = User::with('challenges')->where('users.id',$kid_id)->get();
-        return KidResource::collection($Context);
+        $kid = User::find($kid_id);
+        return new KidResource($kid);
     }
 
     /**

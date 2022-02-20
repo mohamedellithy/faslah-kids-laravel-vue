@@ -21,7 +21,11 @@ class Challenge extends Model
     }
 
     public function kids(){
-        return $this->belongsToMany('App\User','challenge_solutions','challenge_id','kid_id')->withPivot('description','id');
+        return $this->belongsToMany('App\User','App\Solution','challenge_id','kid_id')->withPivot('description','id');
+    }
+
+    public function solutions(){
+        return $this->hasMany('App\Solution','challenge_id','id');
     }
 
     public function getImageForWhoTakeChallengeAttribute(){

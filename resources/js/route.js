@@ -31,6 +31,7 @@ import LoginUser from "./pages/users/register/LoginPage";
 import RegisterUser from "./pages/users/register/RegisterPage";
 import SingleChallenge from "./pages/users/challenges/SingleChallenge";
 import MyChallenges from "./pages/users/challenges/MyChallenges";
+import MySolutionChallenge from "./pages/users/solutions/MySolutionChallenge";
 import MyAccount from "./pages/users/account/MyAccount";
 
 
@@ -227,6 +228,19 @@ const routes = [{
         path: '/my-challenges/:kid_id',
         name: 'my-challenges',
         component: MyChallenges,
+        beforeEnter: function(to, from, next) {
+            if (!store.getters['auth/Authenticated']) {
+                next({
+                    name: 'login'
+                });
+            }
+            next();
+        }
+    },
+    {
+        path: '/my-solution-challenge/:solution_id',
+        name: 'my-solution-challenge',
+        component: MySolutionChallenge,
         beforeEnter: function(to, from, next) {
             if (!store.getters['auth/Authenticated']) {
                 next({

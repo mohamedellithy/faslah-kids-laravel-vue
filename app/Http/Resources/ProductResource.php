@@ -23,8 +23,7 @@ class ProductResource extends JsonResource
             'description' => $this->description,
             'allow'       => ($this->allow == 1 ? 'published' : 'pending'),
             'kids_id'     => $this->who_buy_product,
-            'kids_images' => ImageResource::collection($this->image_for_who_buy_product),
-            'count_buyer' =>count($this->who_buy_product),
+            'kids_images' => ImageResource::collection($this->image_for_who_buy_product)
         ];
     }
 }

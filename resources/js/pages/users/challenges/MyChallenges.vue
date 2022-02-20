@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="content-card">
-                                        <h3 class="my-challenge-title">{{ challenge.title }}</h3>
+                                        <router-link :to="{path:`/challenge/${challenge.id}`}" class="my-challenge-title" :tag="h3">{{ challenge.title }}</router-link>
                                         <p  class="my-challenge-content" >{{ removetags(challenge.description) }}</p>
                                     </div>
                                 </div>
@@ -69,15 +69,15 @@ export default {
         }
     },
     created(){
-        let self = this;
+        let self      = this;
         this.ID       = (typeof this.$route.params.kid_id == 'undefined' ? this.$store.getters['auth/Authenticated'].id : this.$route.params.kid_id);
         this.this_me  = (this.$route.params.kid_id == this.$store.getters['auth/Authenticated'].id ? true :false);
-        axios.get('/api/challenge/page/'+this.ID).then(function(response){
-            self.kidinfo        = response.data.data[0];
-            self.challenges     = response.data.data[0].challenges;
+        axios.get('/api/challenge/page/'+this.ID).then(function({data}){
+            self.kidinfo        = data.data;
+            self.challenges     = data.data.challenges;
             console.log(self.kidinfo);
-        }).catch(function(error){
-            console.log(error);
+        }).catch(function({response}){
+            console.log(response);
         });
     },
     methods: {

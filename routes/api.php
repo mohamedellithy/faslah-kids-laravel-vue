@@ -21,7 +21,7 @@ Route::prefix('auth')->group(function(){
 
 
 # Route::post('register', 'Auth\AuthController@login');
-Route::group(['middleware'=>'api','namespace'=>'Api'],function(){
+Route::group(['namespace'=>'Api'],function(){
     Route::prefix('auth')->group(function(){
         Route::post('logout', 'Auth\AuthController@logout');
         Route::get('me', 'Auth\AuthController@me');
@@ -47,22 +47,27 @@ Route::group(['middleware'=>'api','namespace'=>'Api'],function(){
         Route::get('statics','StaticsController@index');
 
         Route::resource('kids','KidController');
-        Route::get('solutions/{id}','ChallengeSolutionsController@get_solution_of_kid');
-        Route::get('solutions/','ChallengeSolutionsController@all_solutions');
+        Route::get('my-solution/{id}','SolutionsController@get_solution_of_kid');
+        Route::get('solutions/','SolutionsController@all_solutions');
+
+        //Route::get('my-solution/{solution}','SolutionsController@my_solution');
     });
 
-    Route::get('kid/{kide_id}/challenge/activites','KidController@challenges_activities');
+    Route::get('kid/challenge/activites','KidController@challenges_activities');
     Route::resource('challenges','ChallengeController')->only([
         'show'
     ]);
 
-    Route::get('others/solutions/challenges','ChallengeSolutionsController@kids_solutions');
-    Route::post('attach/solution/challenge','ChallengeSolutionsController@attach_solution');
+    Route::get('others/solutions/challenges','SolutionsController@kids_solutions');
+    Route::post('attach/solution/challenge','SolutionsController@attach_solution');
+    
+
     Route::get('challenge/page/{id}','KidController@get_my_challenges');
     Route::resource('kids','KidController')->except([
         'update'
     ]);
     Route::post('kids/{id}','KidController@update');
+
 });
 
 

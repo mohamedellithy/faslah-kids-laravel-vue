@@ -52,7 +52,11 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function challenges(){
-        return $this->belongsToMany('App\Challenge','challenge_solutions','kid_id','challenge_id')->withPivot('description','id');
+        return $this->belongsToMany('App\Challenge','App\Solution','kid_id','challenge_id')->withPivot('description','id');
+    }
+
+    public function solutions(){
+        return $this->hasMany('App\Solution','kid_id','id');
     }
 
     public function scopeKids($query)

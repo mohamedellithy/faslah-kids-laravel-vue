@@ -16,7 +16,7 @@
                     <p > {{ status.message }} </p>
                 </b-alert>
 
-                <!-- <el-table class="table-responsive table"
+                <el-table class="table-responsive table"
                         header-row-class-name="thead-light"
                         :data="projects">
                         <el-table-column label="img"
@@ -64,40 +64,8 @@
 
                         </el-table-column>
 
-                </el-table> -->
+                </el-table> 
 
-                <!-- <table id="table">
-                     <tr>
-                         <th>img</th>
-                         <th>ID</th>
-                         <th>Title</th>
-                         <th>Allow</th>
-                         <th>Action</th>
-
-                     </tr>
-                </table> -->
-
-                <table id="table_id" class="display">
-                    <thead>
-                        <tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                            <th>Column 3</th>
-                            <th>Column 4</th>
-                            <th>Column 5</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Row 1 Data 1</td>
-                            <td>Row 1 Data 2</td>
-                            <td>Row 1 Data 3</td>
-                            <td>Row 1 Data 4</td>
-                            <td>Row 1 Data 5</td>
-                        </tr>
-
-                    </tbody>
-                </table>
 
 
                 <b-card-footer class="py-4 d-flex justify-content-end">
